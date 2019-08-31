@@ -1,9 +1,0 @@
-<?php
-
-    namespace App\Repositories;
-
-    use App\Models\Department
-    use App\Contracts\DepartmentContract;
-    use Illuminate\Database\QueryException;
-    use Illuminate\Database\Eloquent\ModelNotFoundException;
-    use Doctrine\Instantiator\Exception\InvalidArgumentException;

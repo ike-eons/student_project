@@ -2,23 +2,31 @@
 
 namespace App\Providers;
 
-use App\Contracts\CategoryContract;
+
+
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\CategoryRepository;
-use App\Contracts\AttributeContract;
-use App\Repositories\AttributeRepository;
-use App\Contracts\BrandContract;
-use App\Repositories\BrandRepository;
-use App\Contracts\ProductContract;
-use App\Repositories\ProductRepository;
+
+use App\Contracts\DepartmentContract;
+use App\Repositories\DepartmentRepository;
+use App\Contracts\SubjectContract;
+use App\Repositories\SubjectRepository;
+use App\Contracts\CourseContract;
+use App\Repositories\CourseRepository;
+use App\Contracts\StudentContract;
+use App\Repositories\StudentRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
     protected $repositories = [
-        CategoryContract::class         =>          CategoryRepository::class,
-        AttributeContract::class        =>          AttributeRepository::class,
-        BrandContract::class            =>          BrandRepository::class,
-        ProductContract::class          =>          ProductRepository::class,
+        // CategoryContract::class         =>          CategoryRepository::class,
+        // AttributeContract::class        =>          AttributeRepository::class,
+        // BrandContract::class            =>          BrandRepository::class,
+        // ProductContract::class          =>          ProductRepository::class,
+        DepartmentContract::class       =>          DepartmentRepository::class,
+        SubjectContract::class          =>          SubjectRepository::class,
+        CourseContract::class           =>          CourseRepository::class,
+        StudentContract::class          =>          StudentRepository::class,
+
     ];
 
     /**

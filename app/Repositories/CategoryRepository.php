@@ -22,6 +22,8 @@ class CategoryRepository extends BaseRepository implements CategoryContract
     /**
      * CategoryRepository constructor.
      * @param Category $model
+     * explicit calling the parent constructor
+     * in case it is mask by a child class
      */
     public function __construct(Category $model)
     {

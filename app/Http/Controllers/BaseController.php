@@ -63,6 +63,7 @@ class BaseController extends Controller
      * @param bool $withOldInputWhenError
      * @return \Illuminate\Http\RedirectResponse
      */
+    
     protected function responseRedirect($route, $message, $type = 'info', $error = false, $withOldInputWhenError = false)
     {
         $this->setFlashMessage($message, $type);

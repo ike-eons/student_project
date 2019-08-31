@@ -17,6 +17,7 @@ class CreateSubjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('subject_code');
             $table->string('subject_name');
+            $table->integer('credit_hours');
             $table->timestamps();
         });
     }

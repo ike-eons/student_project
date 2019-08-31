@@ -20,7 +20,8 @@ class CreateStudentsTable extends Migration
             $table->string('lastname');
             $table->string('index_no')->unique();
             $table->string('nationality');
-            $table->boolean('regular_or_weekend');
+            $table->boolean('regular_or_weekend')->default(1);
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('course_id')->index();
 
             $table->foreign('course_id')->references('id')->on('courses');
