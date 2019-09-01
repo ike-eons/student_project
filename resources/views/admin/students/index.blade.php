@@ -31,7 +31,7 @@
                             @foreach($students as $student)
                                     <tr>
                                         <td>{{ $student->id }}</td> 
-                                        <td>{{ $student->index_no }}</td> 
+                                    <td><a href="{{ route('admin.students.show',$student->id)}}">{{ $student->index_no }}</a></td> 
                                         <td>{{ $student->getName()}}</td>
                                         <td>{{ $student->course->course_name }}</td>
                                         <td>{{ $student->regular_or_weekend }}</td> 

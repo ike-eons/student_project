@@ -58,6 +58,19 @@ class StudentController extends BaseController
         return $this->responseRedirect('admin.students.index', 'Student added successfully' ,'success',false, false);
     }
 
+     public function edit($id)
+    {
+        $targetStudent = $this->studentRepository->findStudentById($id);
+
+        $students = $this->studentRepository->listStudents();
+
+        $courses = Course::all();
+
+        $this->setPageTitle('Students', 'Edit Student : '.$targetStudent->name);
+        
+        return view('admin.students.edit', compact('students','targetStudent','courses'));
+    }
+
      public function update(Request $request)
     {
         $this->validate($request, [
