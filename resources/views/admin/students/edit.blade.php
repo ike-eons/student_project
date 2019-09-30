@@ -42,13 +42,17 @@
                         <div class="form-group">
                             <label class="control-label" for="course_id">Course Name <span class="m-l-5 text-danger"> *</span></label>
                            
-                            <select class="form-control custom-select mt-15 @error('course_id') is-valid @enderror " name="course_id" id="course_id">
+                             <select class="form-control" name="course_id" id="course_id">
                                 <option value="0">Select a Course</option>
-                                    @foreach ($courses as $course)
-                                        <option value="{{ $course->id }}  ">
-                                                {{ $course->course_name }}
-                                        </option>
-                                    @endforeach
+                                @foreach ($courses as $course)
+                                    <option value="{{ $course->id }}" 
+                                        @if($course->id == $targetStudent->course_id) 
+                                       {{ 'selected'}}
+                                        @endif
+                                        >
+                                            {{ $course->course_name }}
+                                    </option>
+                                @endforeach
                             </select>
                         <span class="text-danger">@error('course_id') {{ $message }} @enderror</span>
                             

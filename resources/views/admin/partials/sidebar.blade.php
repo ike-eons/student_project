@@ -35,12 +35,35 @@
                 <span class="app-menu__label">Students</span>
             </a>
         </li>
-        
+
+         <li>
+            <a class="app-menu__item " href="#">
+                <i class="app-menu__icon fa fa-cogs"></i>
+                <span class="app-menu__label">Fees</span>
+            </a>
+        </li>
+
+         <li>
+            <a class="app-menu__item " href="#">
+                <i class="app-menu__icon fa fa-cogs"></i>
+                <span class="app-menu__label">Library</span>
+            </a>
+        </li>
+
+         <li>
+            <a class="app-menu__item" href="#">
+                <i class="app-menu__icon fa fa-cogs"></i>
+                <span class="app-menu__label">Quality Assurance</span>
+            </a>
+        </li>
+
+         
         <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.settings' ? 'active' : '' }}" href="{{ route('admin.settings') }}">
+            <a class="app-menu__item mt-5 {{ Route::currentRouteName() == 'admin.settings' ? 'active' : '' }}" href="{{ route('admin.settings') }}">
                 <i class="app-menu__icon fa fa-cogs"></i>
                 <span class="app-menu__label">Settings</span>
             </a>
         </li>
+
     </ul>
 </aside>

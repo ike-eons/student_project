@@ -21,9 +21,7 @@
                                 <th> Name </th>
                                 <th> Course</th>
                                 <th> Regular/Weekend </th>
-                                <th> Nationality </th>
-                                
-                                <th> Image </th>
+                               
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>
@@ -35,8 +33,6 @@
                                         <td>{{ $student->getName()}}</td>
                                         <td>{{ $student->course->course_name }}</td>
                                         <td>{{ $student->regular_or_weekend }}</td> 
-                                        <td>{{ $student->nationality }}</td>
-                                        <td>{{ $student->image }}</td>
                                         
                                         <td class="text-center">
                                             <div class="btn-group" role="group" aria-label="Second group">

@@ -22,4 +22,8 @@ class Subject extends Model
         {
             return strtoupper($attribute);
         }
+        public function registration()
+        {
+            return $this->belongsTo(Registration::class);
+        }
 }

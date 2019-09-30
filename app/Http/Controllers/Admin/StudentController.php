@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BaseController;
 use App\Contracts\StudentContract;
 use App\Models\Course;
+use App\Models\Subject;
 
 class StudentController extends BaseController
 {
@@ -58,7 +59,18 @@ class StudentController extends BaseController
         return $this->responseRedirect('admin.students.index', 'Student added successfully' ,'success',false, false);
     }
 
-     public function edit($id)
+    public function show($id)
+    {
+        $targetStudent = $this->studentRepository->findStudentById($id);
+
+        $subjects = Subject::all();
+
+        $this->setPageTitle('Students', ' Student : '.$targetStudent->student_name);
+        
+        return view('admin.students.show', compact('targetStudent','subjects'));
+    }
+
+    public function edit($id)
     {
         $targetStudent = $this->studentRepository->findStudentById($id);
 

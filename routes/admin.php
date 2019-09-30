@@ -27,6 +27,8 @@ Route::group(['prefix'  =>  'admin'], function () {
 
         });
 
+        Route::post('registration','Admin\RegistrationController@store');
+
         Route::group(['prefix' => 'subjects'],function(){
 
             Route::get('/', 'Admin\SubjectController@index')->name('admin.subjects.index');
@@ -48,7 +50,7 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/{id}/delete', 'Admin\CourseController@delete')->name('admin.courses.delete');
         });
 
-        Route::group(['prefix'  =>   'students'], function() {
+        Route::group(['prefix' => 'students'], function() {
 
             Route::get('/', 'Admin\StudentController@index')->name('admin.students.index');
             Route::get('/create', 'Admin\StudentController@create')->name('admin.students.create');
@@ -58,7 +60,21 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update', 'Admin\StudentController@update')->name('admin.students.update');
             Route::get('/{id}/delete', 'Admin\StudentController@delete')->name('admin.students.delete');
 
+            //load subjects on to the page
+            //Route::get('subjects/load', 'Admin\SubjectRegistration@loadSubjects');
+            //add selected subject to current student
+            //Route::post('sujects/add', 'Admin\SubjectRegistration@addSubect');
+            //delete subject from current student
+            //Route::delete('subjects/delete', 'Admin\SubjectRegistration@deleteSubject');
+            //Route::post('/{id}/registration','Admin\RegistrationController@store')->name('admin.registration.store');
         });
+
+        Route::group(['prefix' => 'registrations'], function(){
+            Route::get('/', 'Admin\RegistrationController@index')->name('admin.registrations.index');
+            Route::get('/{id}/register','Admin\RegistrationController@create')->name('admin.registrations.subjectregistration');
+            Route::post('/store','Admin\RegistrationController@store')->name('admin.registrations.store');
+        });
+
 
         // Route::group(['prefix'  =>   'attributes'], function() {
 

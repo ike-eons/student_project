@@ -48,6 +48,7 @@ Vue.use(VueSwal);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
+Vue.component('subject-registrations', require('./components/SubjectRegistrations.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

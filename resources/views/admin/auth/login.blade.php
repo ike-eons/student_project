@@ -14,7 +14,7 @@
 </section>
 <section class="login-content">
     <div class="logo">
-        <h1>{{ config('app.name') }}</h1>
+        <h1>STUDENT HALL-TICKETING SYSTEM</h1>
     </div>
     <div class="login-box">
         <form class="login-form" action="{{ route('admin.login.post') }}" method="POST" role="form">
@@ -32,13 +32,13 @@
                 <div class="utility">
                     <div class="animated-checkbox">
                         <label>
-                            <input type="checkbox" name="remember"><span class="label-text">Stay Signed in</span>
+                            <input type="checkbox" name="remember"><span class="label-text">Stay Login</span>
                         </label>
                     </div>
                 </div>
             </div>
             <div class="form-group btn-container">
-                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
+                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>LOGIN</button>
             </div>
         </form>
     </div>
