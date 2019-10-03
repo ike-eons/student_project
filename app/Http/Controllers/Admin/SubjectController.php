@@ -23,6 +23,13 @@ class SubjectController extends BaseController
         return view('admin.subjects.index', compact('subjects'));
     }
 
+    public function loadsubjects()
+    {
+        $subjects = $this->subjectRepository->listSubjects();
+
+        return  response()->json($subjects);
+    }
+
     public function create()
     {
         $subject = $this->subjectRepository->listSubjects('id', 'asc');

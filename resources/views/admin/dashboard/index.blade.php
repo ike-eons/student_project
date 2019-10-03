@@ -3,7 +3,7 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+            <h1><i class="fa fa-dashboard"></i>System Statistics</h1>
         </div>
     </div>
     <div class="row">
@@ -81,4 +81,7 @@
 
         </div>
         <!-- ./row -->
+        <div id="app">
+         <example-component></example-component>
+        </div>
 @endsection

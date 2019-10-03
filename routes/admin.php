@@ -27,11 +27,12 @@ Route::group(['prefix'  =>  'admin'], function () {
 
         });
 
-        Route::post('registration','Admin\RegistrationController@store');
+        //Route::post('registration','Admin\RegistrationController@store');
 
         Route::group(['prefix' => 'subjects'],function(){
 
             Route::get('/', 'Admin\SubjectController@index')->name('admin.subjects.index');
+            Route::get('/loadsubjects', 'Admin\SubjectController@loadsubjects')->name('admin.subjects.loadsubjects');
             Route::get('/create', 'Admin\SubjectController@create')->name('admin.subjects.create');
             Route::post('/store', 'Admin\SubjectController@store')->name('admin.subjects.store');
             Route::get('/{id}/edit', 'Admin\SubjectController@edit')->name('admin.subjects.edit');
@@ -72,44 +73,11 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::group(['prefix' => 'registrations'], function(){
             Route::get('/', 'Admin\RegistrationController@index')->name('admin.registrations.index');
             Route::get('/{id}/register','Admin\RegistrationController@create')->name('admin.registrations.subjectregistration');
+            Route::get('/{id}/show', 'Admin\RegistrationController@show')->name('admin.registrations.show');
             Route::post('/store','Admin\RegistrationController@store')->name('admin.registrations.store');
         });
 
 
-        // Route::group(['prefix'  =>   'attributes'], function() {
-
-        //     Route::get('/', 'Admin\AttributeController@index')->name('admin.attributes.index');
-        //     Route::get('/create', 'Admin\AttributeController@create')->name('admin.attributes.create');
-        //     Route::post('/store', 'Admin\AttributeController@store')->name('admin.attributes.store');
-        //     Route::get('/{id}/edit', 'Admin\AttributeController@edit')->name('admin.attributes.edit');
-        //     Route::post('/update', 'Admin\AttributeController@update')->name('admin.attributes.update');
-        //     Route::get('/{id}/delete', 'Admin\AttributeController@delete')->name('admin.attributes.delete');
-
-        //     Route::post('/get-values', 'Admin\AttributeValueController@getValues');
-        //     Route::post('/add-values', 'Admin\AttributeValueController@addValues');
-        //     Route::post('/update-values', 'Admin\AttributeValueController@updateValues');
-        //     Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
-        // });
-
-        // Route::group(['prefix'  =>   'brands'], function() {
-
-        //     Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');
-        //     Route::get('/create', 'Admin\BrandController@create')->name('admin.brands.create');
-        //     Route::post('/store', 'Admin\BrandController@store')->name('admin.brands.store');
-        //     Route::get('/{id}/edit', 'Admin\BrandController@edit')->name('admin.brands.edit');
-        //     Route::post('/update', 'Admin\BrandController@update')->name('admin.brands.update');
-        //     Route::get('/{id}/delete', 'Admin\BrandController@delete')->name('admin.brands.delete');
-
-        // });
-
-        // Route::group(['prefix' => 'products'], function () {
-
-        //    Route::get('/', 'Admin\ProductController@index')->name('admin.products.index');
-        //    Route::get('/create', 'Admin\ProductController@create')->name('admin.products.create');
-        //    Route::post('/store', 'Admin\ProductController@store')->name('admin.products.store');
-        //    Route::get('/edit/{id}', 'Admin\ProductController@edit')->name('admin.products.edit');
-        //    Route::post('/update', 'Admin\ProductController@update')->name('admin.products.update');
-
-        // });
+       
     });
 });

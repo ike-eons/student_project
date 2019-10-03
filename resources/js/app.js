@@ -6,6 +6,8 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
+ 
+
 window.Vue = require('vue');
 
 /**
@@ -46,9 +48,9 @@ if (token) {
 import VueSwal from 'vue-swal';
 Vue.use(VueSwal);
 
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
-Vue.component('subject-registrations', require('./components/SubjectRegistrations.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('student-page', require('./components/students/StudentPage.vue').default);
+//Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

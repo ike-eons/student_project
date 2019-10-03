@@ -24,6 +24,8 @@ class RegistrationController extends BaseController
 
     public function index()
     {
+        $students = $this->registrationRepository->listRegistrations();
+        return response()->json($students);
 
     }
 
@@ -36,6 +38,18 @@ class RegistrationController extends BaseController
         return view('admin.registrations.subjectregistration',compact('subjects','student'));
 
     }
+
+    public function show($id)
+    {
+        $data = $this->registrationRepository->findRegistrationById($id);
+
+        $registration = explode(',',$data->subjects);
+
+        //dd($registration);
+
+        return response()->json($registration);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -52,11 +66,7 @@ class RegistrationController extends BaseController
 
         $registration->save();
 
-        if (!$registration) {
-            return $this->responseRedirectBack('Error occurred while creating registration.', 'error', true, true);
-        }
-        return $this->responseRedirect('admin.students.index', 'Registration added successfully' ,'success',false, false);
-
+       return redirect()->route('admin.students.show',['id'=>$registration->student_id])->with('registration',$registration);
     }
 
 }

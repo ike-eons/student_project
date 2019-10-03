@@ -64,7 +64,7 @@
                 </div>
                 
                 <div class="col-5">
-                <img src="{{ asset('images/students/'.$targetStudent->image) }}" alt="Student Photo" class="image-fluid" />
+                  <img src="{{ asset('images/students/'.$targetStudent->image) }}" alt="Student Photo" class="image-fluid" />
                 </div>
 
                 
@@ -75,7 +75,18 @@
           </div>
           </div>
       </div>
-
+      <div>
+          @foreach ($registrations as $registration)
+              @if ($registration->student_id == $targetStudent->id )
+                  
+                  <student-page :studentid="{{$targetStudent->id}}" 
+                  :registrationid="{{$registration->id}}"
+                                >
+                  </student-page>
+              @endif
+          @endforeach
+      
+      </div>
 
 @endsection
 @push('scripts')

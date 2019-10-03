@@ -7,6 +7,7 @@ use App\Http\Controllers\BaseController;
 use App\Contracts\StudentContract;
 use App\Models\Course;
 use App\Models\Subject;
+use App\Models\Registration;
 
 class StudentController extends BaseController
 {
@@ -64,10 +65,11 @@ class StudentController extends BaseController
         $targetStudent = $this->studentRepository->findStudentById($id);
 
         $subjects = Subject::all();
+        $registrations = Registration::all();
 
         $this->setPageTitle('Students', ' Student : '.$targetStudent->student_name);
         
-        return view('admin.students.show', compact('targetStudent','subjects'));
+        return view('admin.students.show', compact('targetStudent','subjects','registrations'));
     }
 
     public function edit($id)
