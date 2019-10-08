@@ -60,7 +60,22 @@
 
                         <div class="form-group">
                             <label class="control-label" for="nationality">Nationality <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('nationality') is-invalid @enderror" type="text" name="nationality" id="nationality" value="{{ $targetStudent->nationality }}"/>
+
+                            <select class="form-control" name="nationality" id="nationality">
+                                <option value="">SELECT NATIONALITY</option>
+
+                                @foreach( $targetStudent->getNationalityOptions() as $nationalityOptionsKey => $nationalityOptionsValue )
+                                    <option value="{{ $nationalityOptionsKey }}" 
+                                        @if ($targetStudent->nationality == $nationalityOptionsValue)
+                                            {{ 'selected'}}
+                                        @endif
+                                    >
+        
+                                        {{$nationalityOptionsValue}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            
                             <span class="text-danger">@error('nationality') {{ $message }} @enderror</span>
                         </div>
 
@@ -99,7 +114,7 @@
                         </div>
                     </div>
                     <div class="tile-footer">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save department</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>SAVE CHANGES</button>
                         &nbsp;&nbsp;&nbsp;
                         <a class="btn btn-secondary" href="{{ route('admin.students.index') }}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancel</a>
                     </div>

@@ -24,7 +24,7 @@
 
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.subjects.index' ? 'active' : '' }}" href="{{ route('admin.subjects.index') }}">
-                <i class="app-menu__icon fa fa-dashboard"></i>
+                <i class="app-menu__icon fas fa-bookmark"></i>
                 <span class="app-menu__label">Subjects</span>
             </a>
         </li>

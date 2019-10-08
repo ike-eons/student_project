@@ -18,12 +18,14 @@ class Student extends Model
         ];
     
     protected $cast = [
-            'regular_or_weekend'    => 'boolean',
-            'course_id'             =>'Integer',
+            'regular_or_weekend'   =>   'boolean',
+            'course_id'            =>   'Integer',
+            'nationality'           =>  'Integer',
     ];
 
     protected $attribute = [
             'regular_or_weekend' => 1,
+            'nationality' => 0,
     ];
 
     public function scopeRegular($query)
@@ -35,8 +37,7 @@ class Student extends Model
     {
         return $query->where('regular_or_weekend',0);
     }
-
-    public function getRegularOrWeekendOptions()
+     public function getRegularOrWeekendOptions()
     {
         return [
             1 => 'REGULAR',
@@ -49,6 +50,34 @@ class Student extends Model
         return $this->getRegularOrWeekendOptions()[$attribute];
     }
 
+    public function scopeGhanaian($query)
+    {
+        return $query->where('nationality',1);
+    }
+    public function scopeNigerian($query)
+    {
+        return $query->where('nationality',2);
+    }
+    public function scopeOtherCountries($query)
+    {
+        return $query->where('nationality',3);
+    }
+
+    public function getNationalityOptions()
+    {
+        return[
+            0 => 'GHANAIAN',
+            1 => 'NIGERIAN',
+            2 => 'OTHERS',
+        ];
+    }
+   
+    public function getNationalityAttribute($attribute)
+    {
+        return $this->getNationalityOptions()[$attribute];
+    }
+    
+
     public function getFirstnameAttribute($attribute)
     {
         return strtoupper($attribute);
@@ -59,11 +88,6 @@ class Student extends Model
         return strtoupper($attribute);
     }
     public function getLastnameAttribute($attribute)
-    {
-        return strtoupper($attribute);
-    }
-
-    public function getNationalityAttribute($attribute)
     {
         return strtoupper($attribute);
     }

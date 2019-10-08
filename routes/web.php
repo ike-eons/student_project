@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'site.pages.homepage')->name('home');
+Route::get('user/{id}', 'UserController@show')->name('auth.clearance');
+Route::get('user/{id}/hallticket', 'UserController@print')->name('auth.hallticket');
+
+
+
 Auth::routes();
 require 'admin.php';

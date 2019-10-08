@@ -28,7 +28,7 @@
 
                         <div class="form-group">
                             <label class="control-label" for="middlename">Middle Name <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('middlename') is-invalid @enderror" type="text" name="middlename" id="middlename" value="{{ old('firstname') }}"/>
+                            <input class="form-control @error('middlename') is-invalid @enderror" type="text" name="middlename" id="middlename" value="{{ old('middlename') }}"/>
                             <span class="text-danger">@error('middlename') {{ $message }} @enderror</span>
                         </div>
 
@@ -42,22 +42,35 @@
                             <label class="control-label" for="course_id">Course Name <span class="m-l-5 text-danger"> *</span></label>
                            
                             <select class="form-control custom-select mt-15 @error('course_id') is-valid @enderror " name="course_id" id="course_id">
-                                <option value="0">Select a Course</option>
+                                <option value="">Select a Course</option>
                                     @foreach ($courses as $course)
                                         <option value="{{ $course->id }}  ">
                                                 {{ $course->course_name }}
                                         </option>
                                     @endforeach
                             </select>
-                        <span class="text-danger">@error('course_id') {{ $message }} @enderror</span>
+                            <span class="text-danger">@error('course_id') {{ $message }} @enderror</span>
                             
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="nationality">Nationality <span class="m-l-5 text-danger"> *</span></label>
+                           
+                            <select class="form-control custom-select mt-15 @error('nationality') is-valid @enderror " name="nationality" id="nationality">
+                                <option value="">Select Country</option>
+                                    <option value="GHANAIAN">GHANAIAN</option>
+                                    <option value="GHANAIAN">NIGERIAN</option>
+                                    <option value="GHANAIAN">OTHERS</option>    
+                            </select>
+                            <span class="text-danger">@error('natioanality') {{ $message }} @enderror</span>
+                            
+                        </div>
+
+                        {{-- <div class="form-group">
+                            <label class="control-label" for="nationality">Nationality <span class="m-l-5 text-danger"> *</span></label>
                             <input class="form-control @error('nationality') is-invalid @enderror" type="text" name="nationality" id="nationality" value="{{ old('nationality') }}"/>
                             <span class="text-danger">@error('nationality') {{ $message }} @enderror</span>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-group">
@@ -78,8 +91,8 @@
 
                         <div class="form-group">
                             <label class="control-label">Upload Image</label>
-                            <input class="form-control @error('nationality') is-invalid @enderror " name="image" id="image" type="file">
-                            <span class="text-danger">@error('nationality') {{ $message }} @enderror</span>
+                            <input class="form-control @error('image') is-invalid @enderror " name="image" id="image" type="file">
+                            <span class="text-danger">@error('image') {{ $message }} @enderror</span>
                         </div>
                     </div>
                     <div class="tile-footer">

@@ -5,6 +5,7 @@ namespace App\Traits;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 
+
 /**
  * Trait UploadAble
  * @package App\Traits
@@ -18,15 +19,19 @@ trait UploadAble
      * @param null $filename
      * @return false|string
      */
-    public function uploadOne(UploadedFile $file, $folder = null, $disk = 'public', $filename = null)
+    public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
     {
         $name = !is_null($filename) ? $filename : str_random(25);
 
-        return $file->storeAs(
+        // $uploadedFile = Image::make(Input::file($uploadedFile))->resize(100,100);
+
+        $file =  $uploadedFile->storeAs(
             $folder,
-            $name . "." . $file->getClientOriginalExtension(),
+            $name . "." . $uploadedFile->getClientOriginalExtension(),
             $disk
         );
+
+        return $file;
     }
 
     /**

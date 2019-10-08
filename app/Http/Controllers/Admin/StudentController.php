@@ -46,7 +46,7 @@ class StudentController extends BaseController
             'nationality'           =>        'required',
             'regular_or_weekend'    =>        'required|boolean',
             'course_id'             =>        'required|Integer|not_in:0',
-            'image'                 =>        'mimes:jpg,jpeg,png|max:1000',
+            'image'                 =>        'mimes:jpg,jpeg,png|max:2000',
         ]);
 
         $params = $request->except('_token');
@@ -91,11 +91,11 @@ class StudentController extends BaseController
             'firstname'             =>        'required|max:191',
             'middlename'            =>        'max:191',
             'lastname'              =>        'required|max:191',
-            'index_no'              =>        'required|unique:students|min:11|max:11|regex:/^ANU\d{8}$/i',
-            'nationality'           =>        'required',
+            'index_no'              =>        'required|min:11|max:11|regex:/^ANU\d{8}$/i',
+            'nationality'           =>        'Integer',
             'regular_or_weekend'    =>        'required|boolean',
             'course_id'             =>        'required|Integer|not_in:0',
-            'image'                 =>        'mimes:jpg,jpeg,png|max:1000',
+            'image'                 =>        'mimes:jpg,jpeg,png|max:2000',
         ]);
 
         $params = $request->except('_token');

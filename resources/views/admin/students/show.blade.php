@@ -13,7 +13,8 @@
             <div class="tile p-0">
                 <ul class="nav flex-column nav-tabs user-tabs">
                     <li class="nav-item"><a class="nav-link active" href="#general" data-toggle="modal">General</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('admin.registrations.subjectregistration',['id'=>$targetStudent->id]) }}">Register Subjects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.registrations.subjectregistration',['id'=>$targetStudent->id]) }}">Register Subjects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.registrations.subjectregistration',['id'=>$targetStudent->id]) }}" data-toggle="modal" data-target="#addSubjectRegistrationModal"><i class="fa fa-plus"></i> Add Subjects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#FeeModal" data-target="#addFeeModal" data-toggle="modal">Fees</a></li>
                     <li class="nav-item"><a class="nav-link" href="#addttendanceModal" data-target="#addAttendanceModal" data-toggle="modal">Attendance</a></li>
                   </ul>
@@ -64,7 +65,7 @@
                 </div>
                 
                 <div class="col-5">
-                  <img src="{{ asset('images/students/'.$targetStudent->image) }}" alt="Student Photo" class="image-fluid" />
+                  <img src="{{ asset('storage/'.$targetStudent->image) }}" alt="Student Photo" class="img-fluid max-width:50% height:auto" />
                 </div>
 
                 
@@ -87,6 +88,10 @@
           @endforeach
       
       </div>
+
+      {{--subject registration modal  --}}
+            @include('admin/students/subjectsmodal')
+      {{--end of subject registration modal  --}}
 
 @endsection
 @push('scripts')

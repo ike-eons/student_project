@@ -81,7 +81,7 @@
 
             $merge = $collection->merge(compact('image'));
 
-            $student>update($merge->all());
+            $student->update($merge->all());
 
             return $student;
 

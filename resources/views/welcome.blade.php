@@ -66,10 +66,10 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Route::has('{{$user}}'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ route('auth.clearance') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -86,9 +86,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">CHECK CLEARANCE STATUS</a>
-                    <a href="#">PRINT HALL TICKET</a>
-                    
+                    <a href=" {{ route('auth.clearance') }}">CHECK CLEARANCE STATUS</a>
                 </div>
             </div>
         </div>

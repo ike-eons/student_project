@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('middlename')->nullable();
             $table->string('lastname');
             $table->string('index_no')->unique();
-            $table->string('nationality');
+            $table->integer('nationality');
             $table->boolean('regular_or_weekend')->default(1);
             $table->string('image')->nullable();
             $table->unsignedBigInteger('course_id')->index();
