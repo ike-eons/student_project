@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1770,6 +1770,100 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    studentid: Number,
+    registrationid: Number
+  },
+  data: function data() {
+    return {
+      registeredsubjects: {},
+      subjects: {},
+      index: 0
+    };
+  },
+  created: function created() {
+    this.loadRegisteredSubjects();
+    this.loadSubjects();
+  },
+  methods: {
+    loadRegisteredSubjects: function loadRegisteredSubjects() {
+      var _this = this;
+
+      // axios.get('/admin/registrations/'+this.registrationid+'/show')
+      //       .then(
+      //             ({response}) => (this.registration = response.data)
+      //             )
+      axios.get('/admin/registrations/' + this.registrationid + '/show').then(function (response) {
+        _this.registeredsubjects = response.data;
+      })["catch"](function (error) {
+        _this.errors = [];
+        console.log(error);
+      });
+    },
+    loadSubjects: function loadSubjects() {
+      var _this2 = this;
+
+      axios.get('/admin/subjects/loadsubjects').then(function (response) {
+        _this2.subjects = response.data;
+      })["catch"](function (error) {
+        _this2.errors = [];
+        console.log(error);
+      });
+    },
+    increment: function increment() {
+      this.index++;
+    }
   }
 });
 
@@ -19410,6 +19504,111 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "tile" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "table",
+          { staticClass: "table table-striped table-hover" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.registeredsubjects, function(registeredsubject) {
+              return _c(
+                "tbody",
+                _vm._l(_vm.subjects, function(subject) {
+                  return registeredsubject == subject.id
+                    ? _c("tr", [
+                        _c("td", [_vm._v(_vm._s(subject.subject_code))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(subject.subject_name))]),
+                        _vm._v(" "),
+                        _vm._m(2, true)
+                      ])
+                    : _vm._e()
+                }),
+                0
+              )
+            })
+          ],
+          2
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "tile-title-w-btn" }, [
+      _c("h3", { staticClass: "tile-title" }, [_vm._v("Registered Subjects")]),
+      _vm._v(" "),
+      _c("p", [
+        _c(
+          "a",
+          { staticClass: "btn btn-primary icon-btn", attrs: { href: "#" } },
+          [_c("i", { staticClass: "fa fa-plus" }), _vm._v("Add Subject\t")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Subject Code")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Subject Name")]),
+        _vm._v(" "),
+        _c(
+          "th",
+          {
+            staticClass: "text-center text-danger",
+            staticStyle: { width: "100px", "min-width": "100px" }
+          },
+          [_c("i", { staticClass: "fa fa-bolt" })]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "text-center" }, [
+      _c("a", { staticClass: "btn btn-sm btn-danger", attrs: { href: "#" } }, [
+        _c("i", { staticClass: "fa fa-trash" })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -31696,8 +31895,6 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  * code may be modified to fit the specific needs of your application.
  */
 
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './bootstrap'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -31733,7 +31930,8 @@ if (token) {
 
 
 Vue.use(vue_swal__WEBPACK_IMPORTED_MODULE_0___default.a);
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]); //Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('student-page', __webpack_require__(/*! ./components/students/StudentPage.vue */ "./resources/js/components/students/StudentPage.vue")["default"]); //Vue.component('attribute-values', require('./components/AttributeValues.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31816,14 +32014,95 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 1:
-/*!***********************************!*\
-  !*** multi ./resources/js/app.js ***!
-  \***********************************/
+/***/ "./resources/js/components/students/StudentPage.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/students/StudentPage.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StudentPage.vue?vue&type=template&id=46f1549e& */ "./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e&");
+/* harmony import */ var _StudentPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StudentPage.vue?vue&type=script&lang=js& */ "./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StudentPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/students/StudentPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./StudentPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/students/StudentPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./StudentPage.vue?vue&type=template&id=46f1549e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/students/StudentPage.vue?vue&type=template&id=46f1549e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StudentPage_vue_vue_type_template_id_46f1549e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/lib/loader.js):\n\r\n@import '~bootstrap/scss/bootstrap';\r\n       ^\r\n      Can't find stylesheet to import.\n  ╷\n9 │ @import '~bootstrap/scss/bootstrap';\r\n  │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  ╵\n  stdin 9:9  root stylesheet\r\n      in C:\\xampp\\htdocs\\student-project\\resources\\sass\\app.scss (line 9, column 9)\n    at runLoaders (C:\\xampp\\htdocs\\student-project\\node_modules\\webpack\\lib\\NormalModule.js:301:20)\n    at C:\\xampp\\htdocs\\student-project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\xampp\\htdocs\\student-project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\xampp\\htdocs\\student-project\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at render (C:\\xampp\\htdocs\\student-project\\node_modules\\sass-loader\\lib\\loader.js:52:13)\n    at Function.$2 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:24443:48)\n    at wP.$2 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:15367:15)\n    at uU.vt (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9079:42)\n    at uU.vs (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9081:32)\n    at iB.uF (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8429:46)\n    at us.$0 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8571:7)\n    at Object.eH (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:1512:80)\n    at ad.ba (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8492:3)\n    at iO.ba (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8422:25)\n    at iO.cv (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8409:6)\n    at py.cv (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8199:35)\n    at Object.m (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:1383:19)\n    at C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:5078:51\n    at xf.a (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:1394:71)\n    at xf.$2 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8214:23)\n    at vS.$2 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8209:25)\n    at uU.vt (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9079:42)\n    at uU.vs (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9081:32)\n    at iB.uF (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8429:46)\n    at us.$0 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8571:7)\n    at Object.eH (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:1512:80)\n    at ad.ba (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8492:3)\n    at iO.ba (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8422:25)\n    at iO.cv (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8409:6)\n    at Object.eval (eval at CM (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:648:15), <anonymous>:3:37)\n    at uU.vt (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9079:42)\n    at uU.vs (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:9081:32)\n    at iB.uF (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8429:46)\n    at us.$0 (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8571:7)\n    at Object.eH (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:1512:80)\n    at ad.ba (C:\\xampp\\htdocs\\student-project\\node_modules\\sass\\sass.dart.js:8492:3)");
+
+/***/ }),
+
+/***/ 0:
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\student-project\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\xampp\htdocs\student-project\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\student-project\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
